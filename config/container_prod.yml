@@ -1,0 +1,15 @@
+services:
+    well_timed_phrase_maker:
+        class:  App\Service\WellTimedGreetingPhraseMaker
+        public: false
+
+    greeter.polite:
+        class:  App\Greeter\PoliteGreeter
+        public: false
+        arguments:
+            - "@well_timed_phrase_maker"
+
+    application:
+        class: App\Application
+        arguments:
+            - "@greeter.polite"

@@ -1,0 +1,9 @@
+services:
+    greeter.rude:
+        class:  App\Greeter\RudeGreeter
+        public: false
+
+    application:
+        class: App\Application
+        arguments:
+            - "@greeter.rude"
